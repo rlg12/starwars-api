@@ -1,10 +1,14 @@
 package com.starwars.repository;
 
 import com.starwars.model.Planet;
+import org.hibernate.boot.model.source.spi.Sortable;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.awt.print.Pageable;
 import java.util.List;
 
 /**
@@ -13,6 +17,7 @@ import java.util.List;
 @Repository
 public interface PlanetRepository extends JpaRepository<Planet,Long> {
     Planet findByName(String name);
+    //Page<Planet> findAll(Pageable pageable);
     List<Planet> findByNameContaining(String name);
     List<Planet> findAllByOrderByNameDesc();
     List<Planet> findByPopulationBetween(Long min, Long max);

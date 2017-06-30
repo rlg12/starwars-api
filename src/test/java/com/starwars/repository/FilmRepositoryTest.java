@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -33,9 +34,15 @@ public class FilmRepositoryTest {
 
     @Test
     public void should_print_all_films() {
-        List<Film> peliculas = filmRepository.findAll();
-        peliculas.stream().forEach(System.out::println);
+        Iterable<Film> peliculas = filmRepository.findAll();
+        peliculas.forEach(System.out::println);
 
     }
 
+    @Test
+    public void should_print_all_logger() {
+        Iterable<Film> peliculas = filmRepository.findAll();
+//        peliculas.forEach(f --> filmRepository.logFim());
+
+    }
 }
