@@ -26,4 +26,7 @@ public interface FilmRepository extends CrudRepository<Film,Long>,CustomFilmRepo
 
     @Query("select f from Film f join f.people p where p.name = :name")
     List<Film> findAllByPeopleContains(@Param("name") String name);
+
+
+    List<Film> findAll();
 }

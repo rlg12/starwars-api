@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.hateoas.ResourceSupport;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
@@ -17,7 +18,7 @@ import java.time.LocalDateTime;
 @Entity
 @Data
 //@EntityListeners({AuditingEntityListener.class})
-public class Planet {
+public class Planet extends ResourceSupport{
     @Id
     @GeneratedValue
     private Long planetId;
