@@ -2,9 +2,18 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
+
 server:
   port: 9080
   error:
     whitelabel:
       enabled: false
 
+management:
+  security:
+    enabled:false
+
+security:
+  user:
+    name: admin
+    password: adminPass
