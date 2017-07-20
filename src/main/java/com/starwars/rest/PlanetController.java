@@ -2,13 +2,17 @@ package com.starwars.rest;
 
 import com.starwars.model.Film;
 import com.starwars.model.Planet;
+import com.starwars.model.PlanetOnlyNameAndPopulation;
 import com.starwars.usecase.film.FindAllFilm;
 import com.starwars.usecase.planet.DeletePlanet;
 import com.starwars.usecase.planet.FindAllPlanets;
 import com.starwars.usecase.planet.FindPlanet;
 import com.starwars.usecase.planet.SavePlanet;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.data.rest.webmvc.RepositoryRestController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,9 +22,11 @@ import java.util.List;
 /**
  * Created by rlg12 on 7/07/17.
  */
-@RestController
-//@Controller
+//@RepositoryRestController
+////@Controller
+@RepositoryRestResource(excerptProjection = PlanetOnlyNameAndPopulation.class)
 @RequestMapping(path = "/planets")
+@Secured("ROLE_PLANETS")
 public class PlanetController {
 
     private FindAllPlanets findAllPlanets;

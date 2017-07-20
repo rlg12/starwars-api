@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Repository;
 
 import java.awt.print.Pageable;
@@ -17,6 +18,8 @@ import java.util.List;
  * Created by rlg12 on 30/06/17.
  */
 @RepositoryRestResource(excerptProjection = PlanetOnlyNameAndPopulation.class)
+//@Repository
+@Secured("ROLE_PLANETS")
 public interface PlanetRepository extends JpaRepository<Planet,Long> {
     Planet findByName(String name);
     //Page<Planet> findAll(Pageable pageable);

@@ -29,7 +29,7 @@ public class Planet extends ResourceSupport{
     private String orbitalPeriod;
 
     private String gravity;
-    private String population;
+    private Long population;
     private String climate;
     private String terrain;
 
